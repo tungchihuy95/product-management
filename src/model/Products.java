@@ -1,14 +1,14 @@
 package model;
 
-public class Products {
+public class Products implements Comparable<Products>{
     private int id;
     private String name;
-    private String price;
+    private int price;
 
     public Products() {
     }
 
-    public Products (int id, String name, String price) {
+    public Products (int id, String name, int  price) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -30,11 +30,11 @@ public class Products {
         this.name = name;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int  price) {
         this.price = price;
     }
 
@@ -45,5 +45,16 @@ public class Products {
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Products o) {
+        if (o.getPrice() > this.getPrice()){
+            return -1;
+        } else if (o.getPrice() == this.getPrice()){
+            return 0;
+        }
+        else
+            return 1;
     }
 }
