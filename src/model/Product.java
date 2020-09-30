@@ -49,12 +49,8 @@ public class Products implements Comparable<Products>{
 
     @Override
     public int compareTo(Products o) {
-        if (o.getPrice() > this.getPrice()){
-            return -1;
-        } else if (o.getPrice() == this.getPrice()){
-            return 0;
-        }
-        else
-            return 1;
+        if (this.getName().compareTo(o.getName()) == 0)
+            return this.getPrice() - o.getPrice(); //nếu tên sp trùng nhau thì hiển thị sp có có giá nhỏ hơn (tăng dần)
+        return this.getName().compareTo(o.getName());
     }
 }
